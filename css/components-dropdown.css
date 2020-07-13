@@ -1,0 +1,107 @@
+ /*center*/
+ .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+ }
+ 
+ /*SVG Plus */
+.newElement {
+    margin: 2px;
+    box-sizing: border-box;
+    position: absolute;
+}
+ .newElement:hover {
+    border-radius: 50%;
+    border: 1px solid;
+ }
+ /*end SVG-Plus */
+
+/* start flexbox */
+.flexbox-container {
+    height: 300px;
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: inherit;
+}
+
+.flexbox-item {
+    min-height: 100px;
+    width: 100px;
+    margin: 10px;
+    background-color: #ffffff;
+    border: 0.01px solid;
+    cursor: pointer;
+}
+.flexbox-item:hover {
+    border: 1px solid;
+    background-color: #c7c7c7;
+}
+
+/* end Flexbox  */
+
+ /* Popup container */
+ .popup {
+    box-sizing: inherit;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    cursor: pointer;
+    
+  }
+  
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    visibility: hidden; 
+    display: none;
+    width: 400px;
+    background-color: rgb(255, 255, 255);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 8px;
+    position: relative;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -140px;
+    margin-top: 5px;
+    overflow: auto;
+    box-shadow: 0 3px 30px rgba(25,30,35,.1);
+    border: 1px solid #e2e4e7;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: none;
+  }
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    display: flex;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  } 
