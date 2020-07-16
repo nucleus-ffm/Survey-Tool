@@ -1,5 +1,5 @@
 <?php
-#error_reporting(0);#jegliche Fehler werden nicht mehr angezeit
+#error_reporting(0);#jegliche Fehler werden nicht mehr angezeigt
 
 
 // To establish the connection to the database
