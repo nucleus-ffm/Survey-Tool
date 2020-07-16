@@ -1,5 +1,5 @@
 <?php
-#error_reporting(0);#jegliche Fehler werden nicht mehr angezeigt
+#error_reporting(0); #if 0 errors are not displayed
 
 
 // To establish the connection to the database
@@ -18,6 +18,7 @@ $db_connection = mysqli_connect(
 
 if ( $db_connection )
 {
+    // success
     #echo 'Success";
     #print_r( $db_link);
 }
