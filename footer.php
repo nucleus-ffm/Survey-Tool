@@ -1,8 +1,8 @@
 </body>
 <!-- end body -->
-<!--start footer-->
+<!--begin footer-->
 <footer>
-    <!-- beginn site-footer. -->
+    <!-- begin site-footer. -->
     <div class="site-footer">
         <nav class="footer-navigation">
             <div class="footer-menue-container">
@@ -16,11 +16,12 @@
         </nav>
     </div>
     <!-- end site-footer -->
-    <!-- beginn credits -->
+    <!-- begin credits -->
     <div class="credits">
         <p>Author: Lilsemy and Nucleus</p>
         <p><a class="email" href="mailto:hege@example.com">hege@example.com</a></p>
     </div>
     <!-- end credits -->
 </footer> 
+<!-- end footer -->
 </html>
