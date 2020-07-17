@@ -1,6 +1,6 @@
 /*global vars*/
 var NumberOfElements = 0; 
-/*beginn DOM*/
+/*begin DOM*/
 function createTextBox() {
     var DivID = countElements();
     const myForm = document.getElementById('myForm');
