@@ -20,7 +20,7 @@
       </div>
   </div>
   <!-- end dropdown menue-->
-  <!-- beginn import js -->
+  <!-- begin import js -->
   <script src="js/main.js"></script>
   <!-- end imoort js -->
 </head>
