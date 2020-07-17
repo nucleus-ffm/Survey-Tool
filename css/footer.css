@@ -1,0 +1,54 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    color: white;
+}
+.site-footer {
+    background: #505b66;
+}
+.footer-navigation {
+    padding-left: 37%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    text-transform: uppercase;
+}
+.footer-menue {
+    list-style-type: none;
+    text-align: center;
+}
+.footer-menue a {
+    text-decoration: none;
+    color: white;
+}
+.footer-menue a:hover {
+    color: red;
+}
+.footer-menue li {
+    float: left;
+    margin: 0.4%;
+}
+.credits {
+    background-color: #2e353d;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+footer::a {
+    text-decoration: none;
+    color: white;
+}
+.footer-menue {
+    text-decoration: none;
+    text-align: center;
+}
+.email {
+    text-decoration: none;
+    color: white;
+}
+.email:hover {
+    color: red;
+}
