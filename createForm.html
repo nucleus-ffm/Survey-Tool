@@ -9,10 +9,12 @@
    <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
-   <div class="form"> <!--form-->
+    <!-- beginn form-->
+   <div class="form">
 
         <div class="form_content">
-            <h1>Umfrage</h1>
+            <input placeholder="Umfragentitle"></input>
+            <button>speichern</button>
             
             <div class="myForm" id="myForm">
                 
@@ -45,7 +47,9 @@
             </div>
         </div>
     </div>
-    <div class="controlPanel"> <!--control panel -->
+    <!-- end form -->
+    <!-- beginn control Panel-->
+    <div class="controlPanel">
         <div class="controllButtonGroup">
             <button class="controlButton">
                 Vorschau
@@ -56,11 +60,11 @@
             <button class="controlButton">
                 abrechen
             </button>
+            <button class="controlButton" onclick="create10()">create10</button>
+            <button class="controlButton" onclick="deleteAll()">alles löschen</button>
         </div>
     </div>
-    <!--<button style="margin-top: 100px;" id="submitButton" class="button submit" type="submit">submit</button>
-    <button style="margin-top: 50px;" class="button reset" type="reset">reset</button>-->
-
+    <!-- end  control Panel-->
   <script src="js/components-dropdown.js"></script>
   <script src="js/createForm.js"></script>
 </body>
