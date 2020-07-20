@@ -70,3 +70,30 @@
     margin-top: 5%;
     margin-bottom: 5%;
  }
+.formRadioDiv {
+    display: flex;
+    justify-content: space-between;
+}
+.RadioControlDiv {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1%;
+}
+.greenButton {
+    background-color: gray;
+    color: white;
+    padding: 2%;
+    border: none;
+}
+.greenButton:hover {
+    background-color: green;
+}
+.deleteElement {
+    background-color: gray;
+    color: white;
+    padding: 2%;
+    border: none;
+}
+.deleteElement:hover {
+    background-color: red;
+}
