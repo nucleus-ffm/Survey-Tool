@@ -12,8 +12,8 @@
   <link rel="stylesheet" href="css/header.css"/>
   <!-- end import css -->
   <!-- start dropdown menue -->
-  <div class="dropbtn">
-      <button onclick="toggleMenue()" class="dropbtn">Einstellungen</button>
+  <div class="headerLine">
+      <button onclick="toggleMenue()" class="dropDownButton">Einstellungen</button>
       <div id="myDropdown" class="dropdown-content">
           <a href="profil.php">Profil</a>
           <a href="settings.php">Einstellungen</a>
