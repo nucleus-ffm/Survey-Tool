@@ -9,14 +9,15 @@
   <link rel="stylesheet" href="css/main.css"/>
   <link rel="stylesheet" href="css/form.css"/>
   <link rel="stylesheet" href="css/footer.css"/>
+  <link rel="stylesheet" href="css/header.css"/>
   <!-- end import css -->
   <!-- start dropdown menue -->
-  <div class="dropdown">
-      <button onclick="toggleMenue()" class="">Einstellungen</button>
+  <div class="dropbtn">
+      <button onclick="toggleMenue()" class="dropbtn">Einstellungen</button>
       <div id="myDropdown" class="dropdown-content">
           <a href="profil.php">Profil</a>
           <a href="settings.php">Einstellungen</a>
-          <a class="logout" href="logout.php">logout</a>
+          <a class="Ausloggen" href="logout.php">Ausloggen</a>
       </div>
   </div>
   <!-- end dropdown menue-->
