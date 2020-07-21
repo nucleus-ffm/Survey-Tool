@@ -17,7 +17,7 @@ function createTextBox() {
     deleteButton.textContent ="Delete Element";
     deleteButton.setAttribute("onclick", "deleteElement(this.parentNode.id)");
 
-    newElement.id = DivID + "item";
+    newElement.id = DivID + "-element";
     newElement.placeholder = "Hier bitte Text eintragen";
     newElement.className = "myFormElemente";
 
@@ -46,7 +46,7 @@ function createTextInput() {
     const myDiv = document.getElementById(DivID);
     let newElement = document.createElement('input');
     newElement.className = "myFormElemente";
-    newElement.id = DivID + "-item";
+    newElement.id = DivID + "-element";
 
     let deleteButton = document.createElement('button');
     deleteButton.id = DivID + "-deleteButton";
@@ -61,15 +61,16 @@ function createRadioButton() {
     const myForm = document.getElementById('myForm');
     let newDiv = document.createElement('div');
     newDiv.className ="formElementDiv";
-    newDiv.id = DivID;
+    newDiv.id = DivID + "-Div";
     myForm.appendChild(newDiv);
 
-    const myDiv = document.getElementById(DivID);
+    const myDiv = document.getElementById(DivID + "-Div");
 
     let newControlDiv = document.createElement('div');
     newControlDiv.className ="RadioControlDiv";
     newControlDiv.id = DivID +"-control";
     myDiv.appendChild(newControlDiv);
+
 
     const controlDiv = document.getElementById(DivID + "-control");
 
@@ -111,7 +112,7 @@ function createRangeSlider() {
 
     const myDiv = document.getElementById(DivID+ "-Div");
     let inputElement = document.createElement('input');
-    inputElement.id = DivID + "-item";
+    inputElement.id = DivID + "-element";
     inputElement.type ="range";
     inputElement.value ="50";
 
@@ -150,7 +151,7 @@ function createKeyword() {
     const myDiv = document.getElementById(DivID);
     let newElement = document.createElement('input');
     newElement.className = "myFormElemente";
-    newElement.id = DivID +"-item";
+    newElement.id = DivID + "-element";
     let deleteButton = document.createElement('button');
     deleteButton.id = DivID + "-deleteButton";
     deleteButton.textContent ="Delete Element";
@@ -173,7 +174,6 @@ function deleteElement(id) {
     buffer = movedElement.id;
     movedElement.id = id-1;
     movedElement2.id = buffer;
-    
 }
 
 /*delete all*/
@@ -211,7 +211,7 @@ window.onmouseover=function(e) {
 };
 
 function saveSilderElement (id) {
-    const silder = document.getElementById(id + "-item");
+    const silder = document.getElementById(id + "-element");
     const start = document.getElementById(id + "-startInput");
     startvalue = start.value;
     silder.setAttribute("min", startvalue);
@@ -223,7 +223,7 @@ function saveSilderElement (id) {
 function newRadioButton (id) {
     ElementID = countElements();
     
-    const myDiv = document.getElementById(id);
+    const myDiv = document.getElementById(id+ "-Div");
     let newDiv = document.createElement('div');
     newDiv.className ="formRadioDiv";
     newDiv.id = id + ElementID;
@@ -232,11 +232,18 @@ function newRadioButton (id) {
     const myRadioDiv = document.getElementById(id + ElementID);
     let newRadioButton = document.createElement('input');
     newRadioButton.type = "radio";
-    newRadioButton.id = ElementID + "-radio";
+    if (document.getElementById(id + "-element") == null) {
+        console.log(id +"-element");
+        newRadioButton.id = id + "-element";
+    }
+    else { 
+        console.log(id + "RadioElement"+ ElementID);
+        newRadioButton.id = id + "RadioElement"+ ElementID ;
+    }
     newRadioButton.name = id;
     let radioButtonText = document.createElement('text');
     radioButtonText.textContent ="--";
-    radioButtonText.id = ElementID +"-Text";
+    radioButtonText.id = ElementID +"-text";
     let RadioButtonValue = document.createElement('input');
     RadioButtonValue.id = ElementID + "-input";
     RadioButtonValue.placeholder ="Bitte Wert eintragen";
@@ -265,4 +272,26 @@ function saveRadioButtonValue (id) {
     inputValue = myInputValue.value;
     myRadioButtonText.textContent = inputValue;
     myRadioButton.value = inputValue;
+}
+
+function saveForm () {
+    for (var j= 0; j<=NumberOfDivs-1; j++) {
+        element = document.getElementById(j + "-element");
+        console.log(j +" " + element.type);
+        if (element.type == "radio") {
+        console.log("its Radio");
+        NextElement = element;
+        ElementID = 1;
+            while (NextElement != null) {
+                /*while there is a next element */
+                Value = NextElement.value;
+                NextElement = document.getElementById(j + "RadioElement"+ ElementID);
+                console.log("success"+ ElementID);
+                ElementID++;
+            }
+        }
+        else {
+        console.log("its not Radio");
+        }
+    }
 }
