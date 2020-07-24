@@ -11,6 +11,7 @@
                     <li><a href=""> Datenschutz</a> </li> 
                     <li><a href=""> Kontakt</a></li> 
                     <li><a href=""> Über</a></li>
+                    <li><a href="">Hilfe</a></li>
                 </ul>  
             </div>    
         </nav>
