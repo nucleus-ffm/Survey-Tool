@@ -15,4 +15,35 @@
     background-color:#dddada;
  }
 
-
+.landing input {
+  padding 1%;
+}
+.landing {
+  display: flex;
+}
+.landing button {
+  margin-left: 3%;
+  padding: 5%;
+  background-color: green;
+  color: white;
+  border-radius: 20%;
+  border: none;
+}
+.landing button:hover {
+  background-color: red;
+}
+.welcome {
+  position: relative;
+  width: 30%;
+  background-color: green;
+  color: white;
+  left: 35%;
+  padding: 1%;
+  margin-top: 5%;
+}
+.welcome a {
+  color: white; 
+}
+.welcome a:hover {
+  color: red;
+}
