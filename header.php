@@ -10,12 +10,16 @@
   <link rel="stylesheet" href="css/form.css"/>
   <link rel="stylesheet" href="css/footer.css"/>
   <link rel="stylesheet" href="css/header.css"/>
+  <link rel="stylesheet" href="css/dashboard.css"/>
+  <link rel="stylesheet" href="css/components-dropdown.css"/>
+
   <!-- end import css -->
   <!-- start dropdown menue -->
   <div class="headerLine">
       <button onclick="toggleMenue()" class="dropDownButton">Einstellungen</button>
       <div id="myDropdown" class="dropdown-content">
-          <a href="profil.php">Profil</a>
+          <a href="index.php">home</a>
+          <a href="dashboard.php">Umfragen</a>
           <a href="settings.php">Einstellungen</a>
           <a class="Ausloggen" href="logout.php">Ausloggen</a>
       </div>
