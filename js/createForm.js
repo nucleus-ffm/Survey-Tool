@@ -1,6 +1,8 @@
 /*global vars*/
-var NumberOfElements = 0; 
-var NumberOfDivs = 0; 
+var NumberOfElements = 0;
+var NumberOfDivs = 0;
+var DivArray = [];
+
 /*begin DOM*/
 function createTextBox() {
     var DivID = countDivs();
@@ -77,7 +79,7 @@ function createRadioButton() {
     let plus = document.createElement('button');
     plus.textContent = "add Radio Button";
     plus.className ="greenButton";
-    plus.id = DivID; 
+    plus.id = DivID;
     plus.setAttribute("onclick", "newRadioButton(this.id)");
 
     /*let svgObject = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -97,10 +99,10 @@ function createRadioButton() {
     deleteButton.id = DivID;
     deleteButton.textContent ="Delete Element";
     deleteButton.setAttribute("onclick", "deleteElement(this.id)");
-    
+
     controlDiv.appendChild(plus);
     controlDiv.appendChild(deleteButton);
-    
+
 }
 function createRangeSlider() {
     var DivID = countDivs();
@@ -116,7 +118,7 @@ function createRangeSlider() {
     inputElement.type ="range";
     inputElement.value ="50";
 
-    let editElement = document.createElement('button'); 
+    let editElement = document.createElement('button');
     editElement.innerText ="edit (ansonsten 1 bis 100)";
     editElement.setAttribute("onclick", "saveSilderElement(this.parentNode.id)");
 
@@ -128,7 +130,7 @@ function createRangeSlider() {
     endInputElement.placeholder ="end";
     endInputElement.value ="100";
     endInputElement.id = DivID + "-endInput";
-   
+
     let deleteButton = document.createElement('button');
     deleteButton.id = DivID + "-deleteButton";
     deleteButton.textContent ="Delete Element";
@@ -194,14 +196,14 @@ function create10 () {
 /*count Divs*/
 function countDivs() {
     NumberOfNextDiv = NumberOfDivs;
-    NumberOfDivs++; 
+    NumberOfDivs++;
     console.log(NumberOfDivs);
     return NumberOfNextDiv;
 }
 /*count Elements*/
 function countElements () {
     NumberOfNextElement = NumberOfElements;
-    NumberOfElements++; 
+    NumberOfElements++;
     console.log(NumberOfElements);
     return NumberOfNextElement;
 }
@@ -222,7 +224,7 @@ function saveSilderElement (id) {
 
 function newRadioButton (id) {
     ElementID = countElements();
-    
+
     const myDiv = document.getElementById(id+ "-Div");
     let newDiv = document.createElement('div');
     newDiv.className ="formRadioDiv";
@@ -236,7 +238,7 @@ function newRadioButton (id) {
         console.log(id +"-element");
         newRadioButton.id = id + "-element";
     }
-    else { 
+    else {
         console.log(id + "RadioElement"+ ElementID);
         newRadioButton.id = id + "RadioElement"+ ElementID ;
     }
@@ -247,7 +249,7 @@ function newRadioButton (id) {
     let RadioButtonValue = document.createElement('input');
     RadioButtonValue.id = ElementID + "-input";
     RadioButtonValue.placeholder ="Bitte Wert eintragen";
-    let saveButton = document.createElement('button'); 
+    let saveButton = document.createElement('button');
     saveButton.className ="greenButton";
     saveButton.textContent ="save";
     saveButton.id = ElementID;
@@ -294,4 +296,37 @@ function saveForm () {
         console.log("its not Radio");
         }
     }
+}
+
+function generateID(ID) {
+
+  console.log("start generateID");
+  console.log(TestArray[0]);
+  //ceck if ID in DivArray
+  var ArrayName = ID + "-array";
+  console.log("an Position: " + DivArray.indexOf(ArrayName));
+  if (DivArray.indexOf(ArrayName) == -1) {
+    //div not in Array
+    console.log("not in Array");
+    var ArrayName = [''];
+    DivArray.push(ArrayName);
+    console.log("now in DivArray");
+  }
+  else {
+    // in DivArray
+     //var newLength = ArrayName.push("new");
+  }
+  console.log(ArrayName.length);
+  var newElementID = ArrayName.length +1;
+  var newlength = ArrayName.push(newElementID);
+  console.log(ArrayName.length);
+  //return newElementID;
+}
+function testArray() {
+  var TestArray = ['hallloo'];
+  var  last = TestArray.pop();
+  var New = 'Nein Danke';
+  var newLength =  TestArray.push(New);
+  console.log("array applied");
+
 }
