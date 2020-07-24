@@ -1,2 +1,2 @@
-<h1>Dies ist der Body</h1>
+<!--this is the body-->
 <?php include("landing.php") ?>
