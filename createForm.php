@@ -46,8 +46,8 @@ include("header.php");
             <button class="controlButton" onclick="saveForm()">
                 speichern
             </button>
-            <button class="controlButton" onclick="testArray()">
-                Test Array
+            <button class="controlButton" onclick="">
+                LEER
             </button>
             <button class="controlButton" onclick="create10()">create10</button>
             <button class="controlButton" onclick="deleteAll()">alles löschen</button>
