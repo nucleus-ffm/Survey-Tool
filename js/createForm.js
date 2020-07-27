@@ -6,6 +6,7 @@ var DivArray = [];
 /*begin DOM*/
 function createTextBox() {
     var DivID = countDivs();
+    var elementID = generateID(DivID);
     const myForm = document.getElementById('myForm');
     let newDiv = document.createElement('div');
     newDiv.className ="formElementDiv";
@@ -13,32 +14,27 @@ function createTextBox() {
     myForm.appendChild(newDiv);
 
     const myDiv = document.getElementById(DivID+ "-Div");
+    let question = document.createElement('textarea'); 
+    question.placeholder = "Bitte hier die Frage eingeben...."
+    question.id = "Div-"+ DivID +"-element-"+ elementID + "-question";
+    question.value = "Hallo";
     let newElement = document.createElement('textarea');
     let deleteButton = document.createElement('button');
     deleteButton.id = DivID + "-deleteButton";
     deleteButton.textContent ="Delete Element";
     deleteButton.setAttribute("onclick", "deleteElement(this.parentNode.id)");
-
-    newElement.id = DivID + "-element";
+    
+    newElement.id ="Div-"+ DivID +"-element-"+ elementID;
     newElement.placeholder = "Hier bitte Text eintragen";
     newElement.className = "myFormElemente";
 
-    let svgObject = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svgObject.setAttribute('class', 'newElement');
-    svgObject.setAttribute('width', '24');
-    svgObject.setAttribute('height', '24');
-    svgObject.setAttribute('viewBox', '-2 -2 24 24');
-    svgObject.setAttribute('role', 'img');
-    svgObject.setAttribute('aria-hidden' , 'true');
-    svgObject.setAttribute('focusable' , 'false');
-    svgObject.innerHTML = '<path d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm0 16c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7zm1-11H9v3H6v2h3v3h2v-3h3V9h-3V6zM10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm0 16c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7zm1-11H9v3H6v2h3v3h2v-3h3V9h-3V6z"></path>';
-
+    myDiv.appendChild(question);
     myDiv.appendChild(newElement);
     myDiv.appendChild(deleteButton);
-    myDiv.appendChild(svgObject);
 }
 function createTextInput() {
     var DivID = countDivs();
+    var elementID = generateID(DivID);
     const myForm = document.getElementById('myForm');
     let newDiv = document.createElement('div');
     newDiv.className ="formElementDiv";
@@ -46,34 +42,44 @@ function createTextInput() {
     myForm.appendChild(newDiv);
 
     const myDiv = document.getElementById(DivID);
+
+    let question = document.createElement('textarea'); 
+    question.placeholder = "Bitte hier die Frage eingeben...."
+    question.id = "Div-"+ DivID +"-element-"+ elementID + "-question";
+
     let newElement = document.createElement('input');
     newElement.className = "myFormElemente";
-    newElement.id = DivID + "-element";
+    
+    newElement.id ="Div-"+ DivID +"-element-"+ elementID;
 
     let deleteButton = document.createElement('button');
     deleteButton.id = DivID + "-deleteButton";
     deleteButton.textContent ="Delete Element";
     deleteButton.setAttribute("onclick", "deleteElement(this.parentNode.id)");
-
+    
+    myDiv.appendChild(question);
     myDiv.appendChild(newElement);
     myDiv.appendChild(deleteButton);
 }
 function createRadioButton() {
     var DivID = countDivs();
+    var elementID = 0; 
     const myForm = document.getElementById('myForm');
     let newDiv = document.createElement('div');
     newDiv.className ="formElementDiv";
-    newDiv.id = DivID + "-Div";
+    newDiv.id = "Div-" + DivID;
     myForm.appendChild(newDiv);
 
-    const myDiv = document.getElementById(DivID + "-Div");
+    const myDiv = document.getElementById("Div-" + DivID);
+    let question = document.createElement('textarea'); 
+    question.placeholder = "Bitte hier die Frage eingeben...."
+    question.id = "Div-"+ DivID +"-element-"+ elementID + "-question";
+    myDiv.appendChild(question);
 
     let newControlDiv = document.createElement('div');
     newControlDiv.className ="RadioControlDiv";
     newControlDiv.id = DivID +"-control";
     myDiv.appendChild(newControlDiv);
-
-
     const controlDiv = document.getElementById(DivID + "-control");
 
     let plus = document.createElement('button');
@@ -81,18 +87,6 @@ function createRadioButton() {
     plus.className ="greenButton";
     plus.id = DivID;
     plus.setAttribute("onclick", "newRadioButton(this.id)");
-
-    /*let svgObject = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svgObject.setAttribute("onclick", "newRadioButton(this.parentNode.id)");
-    svgObject.setAttribute('class', 'newElement');
-    svgObject.setAttribute('width', '24');
-    svgObject.setAttribute('height', '24');
-    svgObject.setAttribute('viewBox', '-2 -2 24 24');
-    svgObject.setAttribute('role', 'img');
-    svgObject.setAttribute('aria-hidden' , 'true');
-    svgObject.setAttribute('focusable' , 'false');
-    svgObject.innerHTML = '<path d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm0 16c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7zm1-11H9v3H6v2h3v3h2v-3h3V9h-3V6zM10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm0 16c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7zm1-11H9v3H6v2h3v3h2v-3h3V9h-3V6z"></path>';
-    */
 
     let deleteButton = document.createElement('button');
     deleteButton.className ="deleteElement";
@@ -106,6 +100,7 @@ function createRadioButton() {
 }
 function createRangeSlider() {
     var DivID = countDivs();
+    var elementID = generateID(DivID);
     const myForm = document.getElementById('myForm');
     let newDiv = document.createElement('div');
     newDiv.className ="formElementDiv";
@@ -113,33 +108,43 @@ function createRangeSlider() {
     myForm.appendChild(newDiv);
 
     const myDiv = document.getElementById(DivID+ "-Div");
+
+    let question = document.createElement('textarea'); 
+    question.placeholder = "Bitte hier die Frage eingeben...."
+    question.id = "Div-"+ DivID +"-element-"+ elementID + "-question";
+
     let inputElement = document.createElement('input');
-    inputElement.id = DivID + "-element";
+    
+    inputElement.id ="Div-"+ DivID +"-element-"+ elementID;
     inputElement.type ="range";
     inputElement.value ="50";
+    inputElement.setAttribute("min", 1);
+    inputElement.setAttribute("max", 100);
 
     let editElement = document.createElement('button');
     editElement.innerText ="edit (ansonsten 1 bis 100)";
-    editElement.setAttribute("onclick", "saveSilderElement(this.parentNode.id)");
+    editElement.id = elementID; 
+    editElement.setAttribute("onclick", "saveSilderElement(this.parentNode.firstChild.nextElementSibling.id, this.previousElementSibling.id, this.nextElementSibling.id)");
 
     let startInputElement = document.createElement('input');
     startInputElement.placeholder ="start";
     startInputElement.value ="1";
-    startInputElement.id = DivID + "-startInput";
+    startInputElement.id = "Div-"+ DivID +"-element-"+ elementID + "-startInput";
     let endInputElement = document.createElement('input');
     endInputElement.placeholder ="end";
     endInputElement.value ="100";
-    endInputElement.id = DivID + "-endInput";
+    endInputElement.id = "Div-"+ DivID +"-element-"+ elementID + "-endInput";
 
     let deleteButton = document.createElement('button');
     deleteButton.id = DivID + "-deleteButton";
     deleteButton.textContent ="Delete Element";
     deleteButton.setAttribute("onclick", "deleteElement(this.parentNode.id)");
-
+    
+    myDiv.appendChild(question);
     myDiv.appendChild(inputElement);
     myDiv.appendChild(startInputElement);
-    myDiv.appendChild(endInputElement);
     myDiv.appendChild(editElement);
+    myDiv.appendChild(endInputElement);
     myDiv.appendChild(deleteButton);
 }
 function createKeyword() {
@@ -151,14 +156,21 @@ function createKeyword() {
     myForm.appendChild(newDiv);
 
     const myDiv = document.getElementById(DivID);
+
+    let question = document.createElement('textarea'); 
+    question.placeholder = "Bitte hier die Frage eingeben...."
+    question.id = "Div-"+ DivID +"-element-"+ elementID + "-question";
+
     let newElement = document.createElement('input');
     newElement.className = "myFormElemente";
-    newElement.id = DivID + "-element";
+    var elementID = generateID(DivID);
+    inputElement.id ="Div-"+ DivID +"-element-"+ elementID;
     let deleteButton = document.createElement('button');
     deleteButton.id = DivID + "-deleteButton";
     deleteButton.textContent ="Delete Element";
     deleteButton.setAttribute("onclick", "deleteElement(this.parentNode.id)");
-
+    
+    myDiv.appendChild(question);
     myDiv.appendChild(newElement);
     myDiv.appendChild(deleteButton);
 }
@@ -200,60 +212,50 @@ function countDivs() {
     console.log(NumberOfDivs);
     return NumberOfNextDiv;
 }
-/*count Elements*/
+/*count Elements not in use
 function countElements () {
-    NumberOfNextElement = NumberOfElements;
+    var NumberOfNextElement = NumberOfElements;
     NumberOfElements++;
     console.log(NumberOfElements);
     return NumberOfNextElement;
-}
-/*just for testing */
-window.onmouseover=function(e) {
-    console.log(e.target.id);
-};
+}*/
 
-function saveSilderElement (id) {
-    const silder = document.getElementById(id + "-element");
-    const start = document.getElementById(id + "-startInput");
-    startvalue = start.value;
+function saveSilderElement (SliderID, startInputID, endInputID) {
+    console.log("SliderID: " + SliderID + " startInputID: "+ startInputID + " endInputID: " + endInputID);
+    const silder = document.getElementById(SliderID);
+    const start = document.getElementById(startInputID);
+    var startvalue = start.value;
     silder.setAttribute("min", startvalue);
-    const end = document.getElementById(id + "-endInput");
-    endvalue = end.value;
+    const end = document.getElementById(endInputID);
+    var endvalue = end.value;
     silder.setAttribute("max", endvalue);
 }
 
-function newRadioButton (id) {
-    ElementID = countElements();
+function newRadioButton (DivID) {
+    ElementID = generateID(DivID);
 
-    const myDiv = document.getElementById(id+ "-Div");
+    const myDiv = document.getElementById("Div-"+ DivID);
     let newDiv = document.createElement('div');
     newDiv.className ="formRadioDiv";
-    newDiv.id = id + ElementID;
+    newDiv.id = DivID + ElementID;
     myDiv.appendChild(newDiv);
 
-    const myRadioDiv = document.getElementById(id + ElementID);
+    const myRadioDiv = document.getElementById(DivID + ElementID);
     let newRadioButton = document.createElement('input');
     newRadioButton.type = "radio";
-    if (document.getElementById(id + "-element") == null) {
-        console.log(id +"-element");
-        newRadioButton.id = id + "-element";
-    }
-    else {
-        console.log(id + "RadioElement"+ ElementID);
-        newRadioButton.id = id + "RadioElement"+ ElementID ;
-    }
-    newRadioButton.name = id;
+    newRadioButton.id = "Div-" + DivID + "-element-"+ ElementID ;
+    newRadioButton.name = DivID;
     let radioButtonText = document.createElement('text');
     radioButtonText.textContent ="--";
-    radioButtonText.id = ElementID +"-text";
+    radioButtonText.id = "Div-" + DivID + "-element-"+ ElementID +"-text";
     let RadioButtonValue = document.createElement('input');
-    RadioButtonValue.id = ElementID + "-input";
+    RadioButtonValue.id = "Div-" + DivID + "-element-"+ ElementID + "-input";
     RadioButtonValue.placeholder ="Bitte Wert eintragen";
     let saveButton = document.createElement('button');
     saveButton.className ="greenButton";
     saveButton.textContent ="save";
     saveButton.id = ElementID;
-    saveButton.setAttribute("onclick", "saveRadioButtonValue(this.id)");
+    saveButton.setAttribute("onclick", "saveRadioButtonValue(this.parentNode.firstChild.id, this.previousElementSibling.previousElementSibling.id, this.previousElementSibling.id)"); //RadioButton, RadioText, InputElement 
     let deleteButton = document.createElement('button');
     deleteButton.className ="deleteElement";
     deleteButton.id = ElementID + "-deleteButton";
@@ -266,67 +268,94 @@ function newRadioButton (id) {
     myRadioDiv.appendChild(deleteButton);
 }
 
-function saveRadioButtonValue (id) {
-    console.log("saveRadioButtonValue"+ id);
-    const myRadioButtonText = document.getElementById(id +"-Text");
-    const myRadioButton = document.getElementById(id+ "-radio");
-    const myInputValue = document.getElementById(id+"-input");
-    inputValue = myInputValue.value;
+function saveRadioButtonValue (RadioID, TextID, InputID) {
+    console.log("RadioID: "+ RadioID + " TextID: "+ TextID + " InputID: " + InputID);
+    const myRadioButtonText = document.getElementById(TextID);
+    const myRadioButton = document.getElementById(RadioID);
+    const myInputValue = document.getElementById(InputID);
+    var inputValue = myInputValue.value;
     myRadioButtonText.textContent = inputValue;
     myRadioButton.value = inputValue;
 }
 
 function saveForm () {
-    for (var j= 0; j<=NumberOfDivs-1; j++) {
-        element = document.getElementById(j + "-element");
-        console.log(j +" " + element.type);
-        if (element.type == "radio") {
-        console.log("its Radio");
-        NextElement = element;
-        ElementID = 1;
-            while (NextElement != null) {
-                /*while there is a next element */
-                Value = NextElement.value;
-                NextElement = document.getElementById(j + "RadioElement"+ ElementID);
-                console.log("success"+ ElementID);
-                ElementID++;
+    var SendData = '';
+    
+    console.log("SurveyID:" + surveyID);
+    DivArray.forEach(function(item, index) {
+        console.log(item, index);
+        var ArrayName = item + "-array";
+        console.log("Array Länge: " + window.ArrayName.length);
+        //var array = window.ArrayName;
+        //"Div-"+ DivID +"-element-"+ elementID;
+        window.ArrayName.forEach(function(item_in, index_in) {
+            console.log("inner Array: " + item_in +"-"+ index_in);
+            var itemNumber = index_in; 
+            console.log("try to get this: " +"Div-" + index +"-element-"+ itemNumber);
+            element = document.getElementById("Div-" + index +"-element-"+ itemNumber);
+            var question = document.getElementById("Div-" + index +"-element-"+ 0 + "-question");
+            if (question.textContent == null){
+                console.log("question is null");
             }
-        }
-        else {
-        console.log("its not Radio");
-        }
-    }
+            else {
+                //console.log("die Frage ist: " + question.textContent);
+            }
+            var P =  index +"-" + itemNumber;
+            if (element != null) {
+                console.log("das Elemenet an Position: " +index_in +" ist ein: " + element.type);
+                
+                if (element.type == "textarea") {
+                    SendData = SendData + "&surveyID=" + window.surveyID + "&type=" + element.type + "&ID=" + element.id +  "&question=" + question.value;
+                }else if (element.type == "text") {
+                    SendData = SendData + "&surveyID=" + window.surveyID + "&ID=" + element.id + "&type=" + element.type + "&question=" + question.value;
+                }else if (element.type == "radio" ) {
+                    SendData = SendData + "&surveyID=" + window.surveyID + "&ID=" + element.id + "&type=" + element.type + "&question=" + question.value + "&name=" + element.name + "&value="+ element.value;
+                }else if (element.type == "range") {
+                    SendData = SendData + "&surveyID=" + window.surveyID + "&ID=" + element.id + "&type=" + element.type + "&question=" + question.value + "&name=" + element.name + "&startValue="+ element.getAttribute("min") + "&endValue=" + element.getAttribute("max");
+                }
+                console.log("try to send Data to Server");
+                var request = new XMLHttpRequest();
+                request.open("POST", "php-helpers/saveForm.php", true);
+                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                request.send(SendData);
+
+                request.onreadystatechange = function(){
+                    if (this.readyState == 4 && this.status == 200){
+                        console.log("success");
+                        ergebnis = this.responseText;
+                        console.log(ergebnis);
+                    }else {
+                        console.log("error");
+                    }
+                };
+             }
+            else {}
+          })
+          
+      })
 }
-
-function generateID(ID) {
-
+function generateID(DivID) {
   console.log("start generateID");
-  console.log(TestArray[0]);
-  //ceck if ID in DivArray
-  var ArrayName = ID + "-array";
+  //check if ID is in DivArray
+  var ArrayName = DivID + "-array";
   console.log("an Position: " + DivArray.indexOf(ArrayName));
   if (DivArray.indexOf(ArrayName) == -1) {
-    //div not in Array
-    console.log("not in Array");
-    var ArrayName = [''];
+    //div is not in Array
+    window.ArrayName = ['']; //-window.- is potentially problematic, we will see
     DivArray.push(ArrayName);
-    console.log("now in DivArray");
   }
   else {
     // in DivArray
-     //var newLength = ArrayName.push("new");
   }
-  console.log(ArrayName.length);
-  var newElementID = ArrayName.length +1;
-  var newlength = ArrayName.push(newElementID);
-  console.log(ArrayName.length);
-  //return newElementID;
+  var newElementID = window.ArrayName.length-1;
+  var newlength = window.ArrayName.push(newElementID);
+  return newElementID;
 }
-function testArray() {
-  var TestArray = ['hallloo'];
-  var  last = TestArray.pop();
-  var New = 'Nein Danke';
-  var newLength =  TestArray.push(New);
-  console.log("array applied");
-
+/*create  randome Survey ID */
+window.onload = function generateSurveyID() {
+    window.surveyID = Math.floor(Math.random() * 99999) + 1;  // returns a random integer from 1 to 99999
 }
+/*just for testing */
+window.onmouseover=function(e) {
+    console.log(e.target.id);
+};
