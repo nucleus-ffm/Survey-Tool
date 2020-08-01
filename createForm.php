@@ -1,12 +1,12 @@
 <?php
 include("header.php");
 ?>
+<div class="content">
     <!-- begin form-->
    <div class="form">
 
         <div class="form_content">
-            <input placeholder="Umfragentitle"></input>
-            <button>speichern</button>
+            
             <div class="myForm" id="myForm">
             </div>
             <div class="popup" onclick="toggelComponents()">
@@ -56,9 +56,11 @@ include("header.php");
     <!-- end  control Panel-->
   <script src="js/components-dropdown.js"></script>
   <script src="js/createForm.js"></script>
+</div>
+
 <?php
 //TODO: fix footer 
-//include("footer.php");
+include("footer.php");
 
 ?>
 
