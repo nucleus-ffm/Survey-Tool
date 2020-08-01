@@ -1,13 +1,18 @@
  .headerLine {
    background-color: #37474f;
- }
- /* Dropdown Button */
+   Display:flex;
+   flex-direction: row;
+  justify-content: Center;
+
+}
+  /* Dropdown Button */
  .dropDownButton {
     background-color: #e4bb08be;
     color: rgb(255, 255, 255);
     padding: 18px;
     font-size: 20px;
     border: none; 
+    margin:left;
   }
 
   /* Dropdown button on hover & focus */
@@ -47,4 +52,15 @@
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;} 
  
- 
+  .LoginBTN{
+    background-color: green;
+    color: rgb(255, 255, 255);
+    padding: 18px;
+    font-size: 20px;
+    text-align: right;  
+    border: none; 
+    opacity: 0.9;
+  }
+  .LoginBTN:hover {
+    opacity:1;
+  }

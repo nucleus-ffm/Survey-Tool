@@ -17,16 +17,22 @@
 <header>
   <!-- start dropdown menue -->
   <div class="headerLine">
-      <button onclick="toggleMenue()" class="dropDownButton">Einstellungen</button>
+  <button onclick="toggleMenue()" class="dropDownButton">Einstellungen</button>
       <div id="myDropdown" class="dropdown-content">
-          <a href="index.php">home</a>
+          <a href="index.php">Home</a>
           <a href="dashboard.php">Umfragen</a>
           <a href="settings.php">Einstellungen</a>
           <a class="Ausloggen" href="logout.php">Ausloggen</a>
-      </div>
-  </div>
-  <!-- end dropdown menue-->
-  <!-- begin import js -->
+        </div>
+      </button>
+
+  <form action="Register.php">
+     <input class="LoginBTN" type="submit" value="Login/Registrieren"> 
+  </form> 
+</div>
+<!-- end dropdown menue-->
+  
+<!-- begin import js -->
   <script src="js/main.js"></script>
   <!-- end imoort js -->
 </header>
