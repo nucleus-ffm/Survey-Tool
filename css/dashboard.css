@@ -3,8 +3,8 @@
   border-collapse: collapse;
   background-color: lemonchiffon;
 }
-.table th {
-  //background-color: goldenrod;
+.table th, .table td {
+  /*background-color: goldenrod;*/
   color: white;
   }
 .table td,
@@ -54,7 +54,6 @@
 .dashboard-button:hover {
   background-color: red;
 }
-
 
 
 .dashboard-table-title {

@@ -9,12 +9,13 @@ $createTableSurveys = "CREATE TABLE IF NOT EXISTS surveys
     surveyID INT (255) NOT NULL, 
     PRIMARY KEY (surveyID),
     userID INT (250) NOT NULL, 
-    surveyTitle VARCHAR (250) NOT NULL
+    surveyTitle VARCHAR (250) NOT NULL, 
+    createDate VARCHAR (250) NOT NULL
 
 )DEFAULT CHARSET=utf8
 ENGINE = MYISAM;
 ";
-
+//TODO: fix date
 if ($db_connection->query($createTableSurveys))
     {
         // success
@@ -126,6 +127,38 @@ else
     }
 
 /*fill tables*/
+$surveyTitle = $_POST['surveyTitle'];
+$surveyID = $_POST['surveyID'];
+$timestamp = time();
+$date = date("d.m.Y");
+/*fill survey Table */
+$insert = "INSERT INTO surveys
+(
+    surveyID,
+    userID, 
+    surveyTitle, 
+    createDate
+)
+ VALUES 
+(
+    '$surveyID', 
+    '00000',
+    '$surveyTitle',
+    '$date'
+)
+";
+if ($db_connection->query($insert))
+{
+    // success
+    # echo "Success";
+}
+else
+{
+    // error
+    echo "Table could not be filled";
+    print_r($db_connection);
+}
+
 foreach ($_POST as $key => $value) {
     //echo $key . ": " . $value . " ";
     if ($key == "type") {
@@ -150,8 +183,9 @@ foreach ($_POST as $key => $value) {
         $endValue = $value;
         //echo ($endValue);
     }else if ($key == "surveyID") {
-        $surveyID = $value;
-        //echo ($surveyID);
+        //
+    }else if ($key == "surveyTitle") {
+        //
     }else {
         echo ("nothing fits: " . $key);
     }

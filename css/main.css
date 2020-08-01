@@ -10,18 +10,22 @@
   left: 50%;
   transform: translate(-50%, -50%);
  }
- body {
+ html, body {
+   height: 84%;
     margin: 0%;
     background-color:#dddada;
  }
-
+ .content {
+  height: 100%;
+}
 .landing input {
-  padding: 1%;
+  padding: 5%;
 }
 .landing {
   display: flex;
+  flex-direction: row;
 }
-.landing button {
+.landingSubmit {
   margin-left: 3%;
   padding: 5%;
   background-color: green;
@@ -29,7 +33,7 @@
   border-radius: 20%;
   border: none;
 }
-.landing button:hover {
+.landingSubmit:hover {
   background-color: red;
 }
 .welcome {

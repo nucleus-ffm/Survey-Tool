@@ -1,12 +1,17 @@
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    clear: both;
+    position: relative;
+    bottom: 0px;
+    left: 0px;
     width: 100%;
+    margin-top: 2%; 
     text-align: center;
     color: white;
     text-decoration: none;
     color: white;
+}
+.content {
+    height: 100%;
 }
 .site-footer {
     background: #505b66;

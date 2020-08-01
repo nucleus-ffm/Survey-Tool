@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +12,9 @@
   <link rel="stylesheet" href="css/header.css"/>
   <link rel="stylesheet" href="css/dashboard.css"/>
   <link rel="stylesheet" href="css/components-dropdown.css"/>
-
   <!-- end import css -->
+</head>
+<header>
   <!-- start dropdown menue -->
   <div class="headerLine">
   <button onclick="toggleMenue()" class="dropDownButton">Einstellungen</button>
@@ -33,6 +34,6 @@
   
 <!-- begin import js -->
   <script src="js/main.js"></script>
-    <!-- end import js -->
-</head>
+  <!-- end imoort js -->
+</header>
 <body>

@@ -4,6 +4,13 @@ var NumberOfDivs = 0;
 var DivArray = [];
 
 /*begin DOM*/
+function createSurveyTitle() {
+    const myForm = document.getElementById('myForm');
+    let surveyTitle = document.createElement('input'); 
+    surveyTitle.id = "surveyTitle";
+    surveyTitle.placeholder =" Bitte Title eintragen";
+    myForm.appendChild(surveyTitle);
+}
 function createTextBox() {
     var DivID = countDivs();
     var elementID = generateID(DivID);
@@ -192,11 +199,11 @@ function deleteElement(id) {
 
 /*delete all*/
 function deleteAll () {
-    for (var i=0; i <=  NumberOfElements-1; i++)  {
+    for (var i=0; i <=  NumberOfDivs-1; i++)  {
         let element = document.getElementById(i);
         element.parentNode.removeChild(element);
     }
-    NumberOfElements = 0; /*reset counter*/
+    NumberOfDivs = 0; /*reset counter*/
 }
 /*for testing create 10 */
 function create10 () {
@@ -251,11 +258,12 @@ function newRadioButton (DivID) {
     let RadioButtonValue = document.createElement('input');
     RadioButtonValue.id = "Div-" + DivID + "-element-"+ ElementID + "-input";
     RadioButtonValue.placeholder ="Bitte Wert eintragen";
+    RadioButtonValue.setAttribute("onchange", "saveRadioButtonValue(this.parentNode.firstChild.id,this.previousElementSibling.id, this.id)");
     let saveButton = document.createElement('button');
     saveButton.className ="greenButton";
     saveButton.textContent ="save";
     saveButton.id = ElementID;
-    saveButton.setAttribute("onclick", "saveRadioButtonValue(this.parentNode.firstChild.id, this.previousElementSibling.previousElementSibling.id, this.previousElementSibling.id)"); //RadioButton, RadioText, InputElement 
+    saveButton.setAttribute("onclick", "saveRadioButtonValue(this.parentNode.firstChild.id,this.previousElementSibling.previousElementSibling.id, this.previousElementSibling.id)"); //RadioButton, RadioText, InputElement 
     let deleteButton = document.createElement('button');
     deleteButton.className ="deleteElement";
     deleteButton.id = ElementID + "-deleteButton";
@@ -264,7 +272,7 @@ function newRadioButton (DivID) {
     myRadioDiv.appendChild(newRadioButton);
     myRadioDiv.appendChild(radioButtonText);
     myRadioDiv.appendChild(RadioButtonValue);
-    myRadioDiv.appendChild(saveButton);
+    //myRadioDiv.appendChild(saveButton);
     myRadioDiv.appendChild(deleteButton);
 }
 
@@ -301,17 +309,20 @@ function saveForm () {
                 //console.log("die Frage ist: " + question.textContent);
             }
             var P =  index +"-" + itemNumber;
+            surveyTitle = document.getElementById("surveyTitle");
+            console.log("Umfragentitle: "+ surveyTitle.value);
+            SendData = SendData + "&surveyTitle=" + surveyTitle.value + "&surveyID=" + window.surveyID ;
             if (element != null) {
                 console.log("das Elemenet an Position: " +index_in +" ist ein: " + element.type);
                 
                 if (element.type == "textarea") {
-                    SendData = SendData + "&surveyID=" + window.surveyID + "&type=" + element.type + "&ID=" + element.id +  "&question=" + question.value;
+                    SendData = SendData + "&type=" + element.type + "&ID=" + element.id +  "&question=" + question.value;
                 }else if (element.type == "text") {
-                    SendData = SendData + "&surveyID=" + window.surveyID + "&ID=" + element.id + "&type=" + element.type + "&question=" + question.value;
+                    SendData = SendData + "&ID=" + element.id + "&type=" + element.type + "&question=" + question.value;
                 }else if (element.type == "radio" ) {
-                    SendData = SendData + "&surveyID=" + window.surveyID + "&ID=" + element.id + "&type=" + element.type + "&question=" + question.value + "&name=" + element.name + "&value="+ element.value;
+                    SendData = SendData + "&ID=" + element.id + "&type=" + element.type + "&question=" + question.value + "&name=" + element.name + "&value="+ element.value;
                 }else if (element.type == "range") {
-                    SendData = SendData + "&surveyID=" + window.surveyID + "&ID=" + element.id + "&type=" + element.type + "&question=" + question.value + "&name=" + element.name + "&startValue="+ element.getAttribute("min") + "&endValue=" + element.getAttribute("max");
+                    SendData = SendData + "&ID=" + element.id + "&type=" + element.type + "&question=" + question.value + "&name=" + element.name + "&startValue="+ element.getAttribute("min") + "&endValue=" + element.getAttribute("max");
                 }
                 console.log("try to send Data to Server");
                 var request = new XMLHttpRequest();
@@ -331,8 +342,10 @@ function saveForm () {
              }
             else {}
           })
-          
       })
+      //Alert-dialog and forwarding to the dashboard 
+      alert("Umfrage wurde gespeichert! Sie kehren zurück zur Übersicht.");
+      window.location.replace("/Survey-Tool-Github/dashboard.php");
 }
 function generateID(DivID) {
   console.log("start generateID");
@@ -354,6 +367,7 @@ function generateID(DivID) {
 /*create  randome Survey ID */
 window.onload = function generateSurveyID() {
     window.surveyID = Math.floor(Math.random() * 99999) + 1;  // returns a random integer from 1 to 99999
+    createSurveyTitle();
 }
 /*just for testing */
 window.onmouseover=function(e) {
