@@ -5,37 +5,29 @@ include("header.php");
   <div class="dashboard">
     <a href= "createForm.php"><button class="dashboard-button"> Neue Umfrage</button></a>
     <div class="dashboard-table-div">
-      <table class=table>
-        <tr>
+
+    <?php
+    require_once("config.php");
+    $getData = "SELECT * FROM surveys ORDER BY createDate DESC";
+		$result =$db_connection->query($getData) ;
+		if ($result->num_rows > 0) {
+        echo "<table class='table'>
+        <tr> 
+          <th>ID</th>
           <th>Title</th>
           <th>gestartet</th>
           <th>Auswertung</th>
           <th>control</th>
-        </tr>
-        <tr>
-          <th>Wie schön ist die ERS1?</th>
-          <th> 24.06.2020</th>
-          <th>24 Teilnehmer</th>
-            <th> <button>bearbeiten</button> <button>Auswerung</button> <button>löschen</button>
-        </tr>
-        <tr>
-          <th>Brauchen wir besseres Essen in der Mensa?</th>
-          <th> 14.07.2020</th>
-          <th>24 Teilnehmer</th>
-            <th> <button>bearbeiten</button> <button>Auswerung</button> <button>löschen</button>
-        </tr>
-        <tr>
-          <th>Wer ist die beste Lehrerin?</th>
-          <th> 11.06.2020</th>
-          <th>72 Teilnehmer</th>
-            <th> <button>bearbeiten</button> <button>Auswerung</button> <button>löschen</button>
-        </tr>
-        <tr>
-          <th>Wer ist die beste Lehrerin?</th>
-          <th> 11.06.2020</th>
-          <th>72 Teilnehmer</th>
-            <th> <button>bearbeiten</button> <button>Auswerung</button> <button>löschen</button>
-        </tr>
+        </tr>";
+		    // output data of each row
+		    while($row = $result->fetch_assoc()) {
+		        echo "<tr><th> " . $row["surveyID"]. " </th><th> " . $row["surveyTitle"]. " </th><th> " .$row["createDate"]. " </th><th>  Auswerung </th><th> <a href='/Survey-Tool-Github/join.php?ID=" . $row["surveyID"] . " '> <button>Ansehen</button></a> <button>Auswerung</button> <button>löschen</button></th></tr>";
+		    }
+		    echo "</table>";
+		} else {
+		    echo "0 results";
+    }
+    ?>
     </div>
   </div>
 </div>
