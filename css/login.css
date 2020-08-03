@@ -1,0 +1,98 @@
+
+* {box-sizing: border-box}
+
+/* Add basic style to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+  box-shadow: 0 3px 30px rgba(25,30,35,.1);
+}
+
+.LoginContainer {
+  float: left; 
+  width: 35%;
+  margin-top: 5%;
+  margin-left: 6%; 
+}
+
+.SigninContainer {
+  float: right;
+  width: 35%;
+  margin-top: 5%;
+  margin-right: 6%; 
+}
+/* Set a grey background color and center the text of the "sign in" section */
+.infoBox {
+  float: left; 
+  width: 15%;
+  margin-left: 1.5%; 
+  margin-top: 10%; 
+  background-color: #e4bb08be;
+  text-align: center; 
+}
+
+
+/* Full-width input fields */
+.inputFields {
+  width: 100%;
+  max-width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=uname]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+  width: 100%;
+
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+
+/* Set style of the Login Button */ 
+.loginbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+.loginbtn:hover {
+  opacity:1;
+}
+
+
+
+/* End Registersection */
