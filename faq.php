@@ -2,7 +2,7 @@
 include("head.php");
 include("header.php");
 ?>
-<link rel="stylesheet" href="css/help.css"/>
+<link rel="stylesheet" href="css/faq.css"/>
 <!-- begin content -->
 <div class="content">
     <div class="faq">
@@ -118,5 +118,5 @@ include("header.php");
 <?php 
 include("footer.php");
 ?>
-<script src="js/help.js"></script>
+<script src="js/faq.js"></script>
 </div>
