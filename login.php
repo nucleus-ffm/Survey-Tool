@@ -5,7 +5,7 @@ include("header.php");
 ?>
 
 <!-- import css -->
-<link rel="stylesheet" href="css/Register.css"/>
+<link rel="stylesheet" href="css/login.css"/>
 <!-- // import css -->
   
 <div class="content">
