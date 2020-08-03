@@ -1,18 +1,15 @@
  .headerLine {
    background-color: #37474f;
-   Display:flex;
-   flex-direction: row;
-  justify-content: Center;
-
+   min-height: 60px;
 }
   /* Dropdown Button */
  .dropDownButton {
     background-color: #e4bb08be;
     color: rgb(255, 255, 255);
-    padding: 18px;
+    padding: 19px;
     font-size: 20px;
     border: none; 
-    margin:left;
+    margin-right: 2%;
   }
 
   /* Dropdown button on hover & focus */
@@ -59,7 +56,9 @@
     font-size: 20px;
     text-align: right;  
     border: none; 
-    opacity: 0.9;
+    /*opacity: 0.9;*/
+    margin-left: 2%; 
+    float: right; 
   }
   .LoginBTN:hover {
     opacity:1;
