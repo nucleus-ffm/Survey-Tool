@@ -7,11 +7,11 @@
         <nav class="footer-navigation">
             <div class="footer-menue-container">
                 <ul class="footer-menue">
-                    <li><a href=""> Impressum</a> </li>
+                    <li><a href="impressum.php"> Impressum</a> </li>
                     <li><a href=""> Datenschutz</a> </li> 
-                    <li><a href=""> Kontakt</a></li> 
-                    <li><a href=""> Über</a></li>
-                    <li><a href="">Hilfe</a></li>
+                    <li><a href="help.php#kontakt"> Kontakt</a></li> 
+                    <li><a href="https://github.com/nucleus-ffm/Survey-Tool"> Source-code</a></li> 
+                    <li><a href="help.php">FAQ</a></li>
                 </ul>  
             </div>    
         </nav>
