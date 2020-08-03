@@ -5,13 +5,12 @@
  }
  /*center*/
  .center {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  margin-top: 15%;
+  margin-left: 45%;  
  }
  html, body {
-   height: 84%;
+   height: 100%;
     margin: 0%;
     background-color:#dddada;
  }
@@ -43,11 +42,45 @@
   color: white;
   left: 35%;
   padding: 1%;
-  margin-top: 5%;
+  margin-top: 3%; 
 }
 .welcome a {
   color: white; 
 }
 .welcome a:hover {
   color: red;
+}
+.impressum {
+  background-color: white;
+  margin-top: 5%;
+  margin-left: 20%;
+  margin-right: 20%;  
+  margin-bottom: 5%;
+  padding: 5%;
+  box-shadow: 0 3px 30px rgba(25,30,35,.1);
+  line-height: 2;
+}
+.landingPage{
+  margin-top: 100%;
+}
+.IDinput{
+  position: relative;
+  margin-top: 10%;
+  margin-left: 40%;
+  padding: 0%; 
+}
+.IDinput input{
+  padding: 1%; 
+}
+.roundButton {
+  margin-top: 3%;
+  margin-left: 3%;  
+  padding: 1%; 
+  border: none;
+  border-radius: 30px;
+  background-color: black;
+  color: white; 
+}
+.roundButton:hover {
+  background-color: red;
 }
