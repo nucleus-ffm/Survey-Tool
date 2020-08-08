@@ -1,7 +1,7 @@
 <?php
 include("header.php");
-include("registerdatabase.php");
-include("logindatabase.php");
+include("php-helpers/registerdatabase.php");
+include("php-helpers/logindatabase.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,20 +18,20 @@ include("logindatabase.php");
    <!-- Start Login Section -->
   <div class="container">
  
- <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="postLogin"> 
+ <form action="logindatabase.php" method="POST"> 
   <h1>Anmelden</h1>
       <p>Geben Sie Ihre Daten ein, um sich anzumelden!</p>
       <hr>
-    <div class="form-group <?php echo (!empty($username_errLogin)) ? 'has-error' : ''; ?>">
-    <label for="unameLogin"><b>Benutzername </b></label>
+    <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+    <label for="username"><b>Benutzername </b></label>
     <br>
-    <input type="unameLogin" placeholder="Benutzername eingeben" name="unameLogin" id="unameLogin" value="<?php echo $usernameLogin; ?>" required>
+    <input type="uname" placeholder="Benutzername eingeben" name="username" id="username" value="<?php echo $username; ?>" required>
     <br>
     </div>
-    <div class="form-group <?php echo (!empty($password_errLogin)) ? 'has-error' : ''; ?>">
-    <label for="psw1"><b>Passwort</b></label>
+    <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+    <label for="password"><b>Passwort</b></label>
     <br>
-    <input type="passwordLogin" placeholder="Passwort eingeben" name="pswLogin" id="pswLogin" required>
+    <input type="password" placeholder="Passwort eingeben" name="password" id="password" required>
     </div>
     <button type="submit" class="loginbtn">Anmelden</button>
     <hr>
@@ -46,7 +46,7 @@ include("logindatabase.php");
 
 <!-- Start Register Section -->
 <div class="container">
-  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+<form action="registerdatabase.php" method="post">
     <h1>Registrieren</h1>
     <p>Bitte füllen Sie die Felder aus, um sich zu registrieren!</p>
     <hr>
