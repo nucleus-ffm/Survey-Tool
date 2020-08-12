@@ -10,6 +10,6 @@ if (!isset($_SESSION['loggedIn'])) {
 ?>
 <div class="content">
 <!--this is the body-->
-<h1> Willkommen Username </h1>
+<h1> Willkommen <?php echo( $_SESSION["username"]) ?> </h1>
 <p> Hier findest Du alle Informationen auf einen Blick</p>
 </div>
