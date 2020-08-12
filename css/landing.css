@@ -1,0 +1,93 @@
+.height100 {
+    height: 100%;
+}
+.landingContainer {
+    height: 100%;
+    background-color: white;
+    height: 80%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 2%;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0 3px 30px rgba(25,30,35,.1);
+}
+.landingContainer lable {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3%;
+    
+}
+.landingCredits {
+    display: flex;
+    /*justify-content: center;
+    align-content: end;*/
+}
+.landingPage{
+    margin-top: 100%;
+  }
+.IDinput{
+    position: relative;
+    margin-top: -3%;
+    padding: 0%;
+    /*align-self: center;*/
+}
+.IDinput input{
+    position: relative;
+    padding: 0%; 
+   margin-top: 5%;
+   margin-bottom: 5%;
+}
+.IDinput a {
+    justify-content: center;
+    text-decoration: none;
+}
+.roundButton {
+    display: flex;
+    margin-top: 3%;  
+    padding: 4%; 
+    border: none;
+    border-radius: 30px;
+    background-color: black;
+    color: white; 
+    margin-left: 15%;
+}
+.roundButton:hover {
+    background-color: red;
+}
+.landing input {
+    padding: 5%;
+  }
+.landing {
+    display: flex;
+    flex-direction: row;
+}
+.landingSubmit {
+    margin-left: 3%;
+    padding: 5%;
+    background-color: green;
+    color: white;
+    border-radius: 20%;
+    border: none;
+}
+.landingSubmit:hover {
+    background-color: red;
+}
+.welcome {
+    display: flex;
+    align-self: center;
+    width: 80%;
+    background-color: green;
+    color: white;
+    padding: 1%;
+    margin-top: 3%; 
+}
+.welcome a {
+    color: white; 
+}
+.welcome a:hover {
+    color: red;
+}
