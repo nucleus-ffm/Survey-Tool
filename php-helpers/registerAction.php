@@ -1,18 +1,42 @@
 <?php
 
 // Include config file
-require_once "config.php";
- 
+require_once("../config.php");
+// create Table users
+$createTableSurveys = "CREATE TABLE IF NOT EXISTS users (
+
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    `password` VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL,    
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    `state` VARCHAR (50)                                                                                                                                                                                                                                                                                 
+)
+DEFAULT CHARSET=utf8
+ENGINE = MYISAM;
+";
+//TODO: fix date
+if ($db_connection->query($createTableSurveys))
+    {
+        // success
+        # echo "Success";
+    }
+else
+    {
+        // error
+        echo "Table could not be created";
+        print_r($db_connection);
+    }
+
 // Define variables and initialize with empty values
 $username = $password = $email = $Begründung = "";
-$username_err = $password_err = $email_err = $Begründung_err = "";
+//$username_err = $password_err = $email_err = $Begründung_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
     //Validate Email
     if(empty(trim($_POST["email"]))){
-        $email_err = "Please enter an email.";
+        echo("please enter an Email");
     } else{
         // Prepare a select statement
         $sql = "SELECT id FROM users WHERE email = ?";
@@ -20,32 +44,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($stmt = mysqli_prepare($db_connection, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_email);
-            
             // Set parameters
             $param_email = trim($_POST["email"]);
-            
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 /* store result */
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    $email_err = "This email is already taken.";
+                    echo("this email is already taken");
                 } else{
                     $email = trim($_POST["email"]);
                 }
             } else{
-                echo "Fehler! Bitte versuchen Sie es später erneut!";
+                echo "E-Mail-Fehler! Bitte <a href='../faq.php#kontakt'>kontaktieren</a> sie die Entwickler";
             }
 
             // Close statement
             mysqli_stmt_close($stmt);
         }
+        else {
+            echo "E-Mail-Fehler! Bitte <a href='../faq.php#kontakt'>kontaktieren</a> sie die Entwickler";
+        }
     }
 
     // Validate username
-    if(empty(trim($_POST["uname"]))){
-        $username_err = "Please enter a username.";
+    if(empty(trim($_POST["username"]))){
+        echo("Please enter a username.");
     } else{
         // Prepare a select statement
         $sql = "SELECT id FROM users WHERE username = ?";
@@ -55,7 +80,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
             
             // Set parameters
-            $param_username = trim($_POST["uname"]);
+            $param_username = trim($_POST["username"]);
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -63,12 +88,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    $username_err = "This username is already taken.";
+                    echo("This username is already taken.");
                 } else{
-                    $username = trim($_POST["uname"]);
+                    $username = trim($_POST["username"]);
                 }
             } else{
-                echo "Fehler! Bitte versuchen Sie es später erneut!";
+                echo "Username-Fehler! Bitte <a href='../faq.php#kontakt'>kontaktieren</a> Sie die Entwickler";
             }
 
             // Close statement
@@ -77,12 +102,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
    // Validate password
-    if(empty(trim($_POST["psw"]))){
-        $password_err = "Bitte geben Sie ein Passwort ein.";     
-    } elseif(strlen(trim($_POST["psw"])) < 4){
-        $password_err = "Ihr Passwort muss mindestens 4 Zeichen lang sein!";
+    if(empty(trim($_POST["password"]))){
+        echo("bitte geben Sie ein Passwort ein");     
+    } elseif(strlen(trim($_POST["password"])) < 4){
+        echo("Ihr passwort muss mindestens 4 Zeichen lang sein!");
     } else{
-        $password = trim($_POST["psw"]);
+        $password = trim($_POST["password"]);
     }
     
    
@@ -101,13 +126,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             $param_email = $email;
          // $param_Begründung = $Begründung;
-         
          // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
+                //success
+                echo("Danke! Du hast Dich erfolgreich registiert. Dein Account wird so bald wie möglich von uns freigeschaltet");
                 // Redirect to login page
-                header("location: index.php");
+                header("refresh: 5; URL= ../index.php");
+                
             } else{
-                echo "Fehler! Bitte versuchen Sie es später erneut!";
+                echo("SQL-Fehler! Bitte versuchen Sie es später erneut!");
             }
 
             // Close statement
