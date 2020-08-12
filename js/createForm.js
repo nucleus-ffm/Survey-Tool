@@ -17,8 +17,10 @@ function createTextBox() {
     const myForm = document.getElementById('myForm');
     let newDiv = document.createElement('div');
     newDiv.className ="formElementDiv";
-    newDiv.id = DivID+ "-Div";
+    newDiv.id = "-Div" + DivID;
     myForm.appendChild(newDiv);
+
+   
 
     const myDiv = document.getElementById(DivID+ "-Div");
     let question = document.createElement('textarea'); 
@@ -28,6 +30,7 @@ function createTextBox() {
     let newElement = document.createElement('textarea');
     let deleteButton = document.createElement('button');
     deleteButton.id = DivID + "-deleteButton";
+    deleteButton.className ="deleteButton";
     deleteButton.textContent ="Delete Element";
     deleteButton.setAttribute("onclick", "deleteElement(this.parentNode.id)");
     
@@ -45,10 +48,16 @@ function createTextInput() {
     const myForm = document.getElementById('myForm');
     let newDiv = document.createElement('div');
     newDiv.className ="formElementDiv";
-    newDiv.id = DivID;
+    newDiv.id = "Div-"+ DivID;
     myForm.appendChild(newDiv);
 
-    const myDiv = document.getElementById(DivID);
+    const myDiv = document.getElementById("Div-" +DivID);
+    
+    let plus = document.createElement('button');
+    plus.textContent = "add Input";
+    plus.className ="greenButton";
+    plus.id = DivID;
+    plus.setAttribute("onclick", "newTextInput(this.id)");
 
     let question = document.createElement('textarea'); 
     question.placeholder = "Bitte hier die Frage eingeben...."
@@ -62,10 +71,11 @@ function createTextInput() {
     let deleteButton = document.createElement('button');
     deleteButton.id = DivID + "-deleteButton";
     deleteButton.textContent ="Delete Element";
+    deleteButton.className ="deleteButton";
     deleteButton.setAttribute("onclick", "deleteElement(this.parentNode.id)");
     
     myDiv.appendChild(question);
-    myDiv.appendChild(newElement);
+    myDiv.appendChild(plus);
     myDiv.appendChild(deleteButton);
 }
 function createRadioButton() {
@@ -98,6 +108,7 @@ function createRadioButton() {
     let deleteButton = document.createElement('button');
     deleteButton.className ="deleteElement";
     deleteButton.id = DivID;
+    deleteButton.className ="deleteButton";
     deleteButton.textContent ="Delete Element";
     deleteButton.setAttribute("onclick", "deleteElement(this.id)");
 
@@ -145,6 +156,7 @@ function createRangeSlider() {
     let deleteButton = document.createElement('button');
     deleteButton.id = DivID + "-deleteButton";
     deleteButton.textContent ="Delete Element";
+    deleteButton.className ="deleteButton";
     deleteButton.setAttribute("onclick", "deleteElement(this.parentNode.id)");
     
     myDiv.appendChild(question);
@@ -175,6 +187,7 @@ function createKeyword() {
     let deleteButton = document.createElement('button');
     deleteButton.id = DivID + "-deleteButton";
     deleteButton.textContent ="Delete Element";
+    deleteButton.className ="deleteButton";
     deleteButton.setAttribute("onclick", "deleteElement(this.parentNode.id)");
     
     myDiv.appendChild(question);
@@ -275,6 +288,28 @@ function newRadioButton (DivID) {
     //myRadioDiv.appendChild(saveButton);
     myRadioDiv.appendChild(deleteButton);
 }
+function newTextInput (DivID) {
+    ElementID = generateID(DivID);
+
+    const myDiv = document.getElementById("Div-"+ DivID);
+    let newDiv = document.createElement('div');
+    newDiv.className ="formInputDiv";
+    newDiv.id = DivID + ElementID;
+    myDiv.appendChild(newDiv);
+
+    const myRadioDiv = document.getElementById(DivID + ElementID);
+    let newInput = document.createElement('input');
+    newInput.id = "Div-" + DivID + "-element-"+ ElementID ;
+    newInput.name = DivID;
+    newInput.placeholder ="Hier nichts eintragen";
+    let deleteButton = document.createElement('button');
+    deleteButton.className ="deleteElement";
+    deleteButton.id = ElementID + "-deleteButton";
+    deleteButton.textContent ="Delete";
+    deleteButton.setAttribute("onclick", "deleteElement(this.parentNode.id)");
+    myRadioDiv.appendChild(newInput);
+    myRadioDiv.appendChild(deleteButton);
+}
 
 function saveRadioButtonValue (RadioID, TextID, InputID) {
     console.log("RadioID: "+ RadioID + " TextID: "+ TextID + " InputID: " + InputID);
@@ -366,7 +401,7 @@ function generateID(DivID) {
 }
 /*create  randome Survey ID */
 window.onload = function generateSurveyID() {
-    window.surveyID = Math.floor(Math.random() * 99999) + 1;  // returns a random integer from 1 to 99999
+    window.surveyID = Math.floor(Math.random() * 99999999) + 1;  // returns a random integer from 1 to 99999
     createSurveyTitle();
 }
 /*just for testing */
