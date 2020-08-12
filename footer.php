@@ -8,11 +8,10 @@
             <div class="footer-menue-container">
                 <ul class="footer-menue">
                     <li><a href="impressum.php"> Impressum</a> </li>
-                    <li><a href=""> Datenschutz</a> </li> 
-                    <li><a href="help.php#kontakt"> Kontakt</a></li> 
+                    <li><a href="privacy.php"> Datenschutz</a> </li> 
+                    <li><a href="faq.php#kontakt"> Kontakt</a></li> 
                     <li><a href="https://github.com/nucleus-ffm/Survey-Tool"> Source-code</a></li> 
-                    <li><a href="help.php">FAQ</a></li>
-                </ul>  
+                    <li><a href="faq.php">FAQ</a></li>   
             </div>    
         </nav>
     </div>
