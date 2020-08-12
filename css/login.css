@@ -1,5 +1,4 @@
 
-* {box-sizing: border-box}
 
 /* Add basic style to containers */
 .container {
@@ -31,7 +30,6 @@
   text-align: center; 
 }
 
-
 /* Full-width input fields */
 .inputFields {
   width: 100%;
@@ -53,7 +51,6 @@ hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
   width: 100%;
-
 }
 
 /* Set a style for the submit/register button */
@@ -92,7 +89,5 @@ a {
 .loginbtn:hover {
   opacity:1;
 }
-
-
 
 /* End Registersection */
