@@ -1,6 +1,6 @@
 <?php
 include("head.php");
-$_SESSION['loggedIn'] = TRUE; //remove that when the login is ready
+//$_SESSION['loggedIn'] = TRUE; //remove that when the login is ready
 include("header.php");
 ?>
 
@@ -12,18 +12,18 @@ include("header.php");
 
 <!-- begin Login Section -->
 <div class="LoginContainer container">
-  <form action="">
+  <form action="php-helpers/loginAction.php" method="POST">
     
     <h1>Anmelden</h1>
     <p>Geben Sie Ihre Daten ein, um sich anzumelden!</p>
     <hr>
     <label for="username"><b>Benutzername </b></label>
     <br>
-    <input class="inputFields" placeholder="Benutzername eingeben" name="uname" id="uname" required>
+    <input class="inputFields" placeholder="Benutzername eingeben" name="username" id="username" required>
     <br>
     <label for="psw"><b>Passwort</b></label>
     <br>
-    <input class="inputFields" type="password" placeholder="Passwort eingeben" name="psw" id="psw" required>
+    <input class="inputFields" type="password" placeholder="Passwort eingeben" name="password" id="password" required>
     <button type="submit" class="loginbtn">Anmelden</button>
     <hr>
 
@@ -37,7 +37,7 @@ include("header.php");
 
 <!-- begin register Section -->
 <div class="SigninContainer container">
-  <form action="action_page.php">
+  <form action="php-helpers/registerAction.php" method="POST">
   
     <h1>Registrieren</h1>
     <p>Bitte füllen Sie die Felder aus, um sich zu registrieren!</p>
