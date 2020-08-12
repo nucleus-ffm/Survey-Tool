@@ -1,26 +1,7 @@
 <?php
 include("head.php");
 if (!isset($_GET['ID'])) {
-    ?>
-    <div class="content">
-    <div class="welcome"> 
-        <!-- page info -->
-        <p> <strong>Willkommen</strong> auf der Umfrageseite der ****. Wenn Du an einer Umfrage teilnehmen möchtest, gibt bitte unten diese ID der Umfrage ein. 
-        informationen, wie Du selbst Umfragen erstellen kannst, findest du <a href="">hier</a>.
-        </p>
-
-    </div>
-    <div class="center">
-        <form class="landing" action="join.php" method="GET">
-        <input required name="ID" autofocus placeholder="Please input ID">
-        <input class="landingSubmit" type="submit" value="join">
-        <br>
-        </form>
-    </div>
-
-    </div>
-    <?php
-    include("footer.php");
+   header("location: index.php");
     exit;
 }
 
@@ -52,7 +33,8 @@ else
 
 ?>
  <link rel="stylesheet" href="css/answerForm.css"/>
- <form id="answerForm" action="">
+ <div class="content">
+ <form class="answerForm" id="answerForm" action="">
 
 <h1><?php echo "$surveyTitle"?></h1>
 
@@ -75,13 +57,13 @@ if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo ("
             <div class='tab'>
-            <p> " . $row["question"] . "</p>
+            <h2> " . $row["question"] . "</h2>
             <p><textarea oninput= 'this.className=``'> </textarea></p>
             </div>
             ");
         }
     } else {
-        echo "0 results";
+        //echo "0 results";
 }
 //end textarea //
 //begin rangeSlider //
@@ -103,7 +85,7 @@ if ($result->num_rows > 0) {
         }
         echo "</table>";
     } else {
-        echo "0 results";
+        // echo "0 results";
 }
 //end rangeSlider //
 //begin radioButtons //
@@ -115,7 +97,9 @@ $NumberOfFields = $NumberOfFields + mysqli_num_rows($result);
 if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
+            // dem div tab die ID von dem DIV geben. Dann können wir es wieder finden und die anderen hinzufügen
             echo ("
+            
             <div class='tab'>
             <p> " . $row["question"] . "</p>
             <p>
@@ -139,13 +123,13 @@ if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo ("
             <div class='tab'>
-            <p> " . $row["question"] . "</p>
-            <p><input placeholder='Hier antworte eingeben' oninput= 'this.className=``'></p>
+            <h2> " . $row["question"] . "</h2>
+            <p><input placeholder='Hier Antwort eingeben' oninput= 'this.className=``'></p>
             </div>
             ");
         }
     } else {
-        echo "0 results";
+        // echo "0 results";
 }
 //end textinput // 
 ?>
@@ -167,6 +151,7 @@ if ($result->num_rows > 0) {
 </div>
 <!-- end Circles -->
 </form> 
+</div>
 <!-- inport JS Script -->
 <script src="js/answerForm.js"></script>
 <?php
