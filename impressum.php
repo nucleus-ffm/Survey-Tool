@@ -6,7 +6,7 @@ include("header.php");
 ?>
 <body>
 <div class="content">
-    <div class="impressum">
+    <div class="impressum-privacy">
         <h1>Impressum </h1>
         <h2>Angaben gemäß § 5 TMG </h2>
         <p>
