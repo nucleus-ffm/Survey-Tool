@@ -1,4 +1,9 @@
 <?php
+// Initialize the session
+session_start();
+ 
+
+
 // connect to Database
 require_once("../config.php");
 header("Content-Type: text/html; charset=utf-8");
@@ -10,7 +15,7 @@ $createTableSurveys = "CREATE TABLE IF NOT EXISTS surveys
     PRIMARY KEY (surveyID),
     userID INT (250) NOT NULL, 
     surveyTitle VARCHAR (250) NOT NULL, 
-    createDate VARCHAR (250) NOT NULL
+    createDate  DATETIME DEFAULT CURRENT_TIMESTAMP
 
 )DEFAULT CHARSET=utf8
 ENGINE = MYISAM;
@@ -130,21 +135,20 @@ else
 $surveyTitle = $_POST['surveyTitle'];
 $surveyID = $_POST['surveyID'];
 $timestamp = time();
+$userID = $_SESSION["userID"];
 $date = date("d.m.Y");
 /*fill survey Table */
 $insert = "INSERT INTO surveys
 (
     surveyID,
     userID, 
-    surveyTitle, 
-    createDate
+    surveyTitle 
 )
  VALUES 
 (
     '$surveyID', 
-    '00000',
-    '$surveyTitle',
-    '$date'
+    '$userID',
+    '$surveyTitle'
 )
 ";
 if ($db_connection->query($insert))
