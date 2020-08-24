@@ -17,12 +17,12 @@ function createTextBox() {
     const myForm = document.getElementById('myForm');
     let newDiv = document.createElement('div');
     newDiv.className ="formElementDiv";
-    newDiv.id = "-Div" + DivID;
+    newDiv.id = "Div-" + DivID;
     myForm.appendChild(newDiv);
 
    
 
-    const myDiv = document.getElementById(DivID+ "-Div");
+    const myDiv = document.getElementById("Div-" + DivID);
     let question = document.createElement('textarea'); 
     question.placeholder = "Bitte hier die Frage eingeben...."
     question.id = "Div-"+ DivID +"-element-"+ elementID + "-question";
