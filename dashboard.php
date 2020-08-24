@@ -8,8 +8,9 @@ include("header.php");
     <div class="dashboard-table-div">
 
     <?php
+    $userID = $_SESSION["userID"];
     require_once("config.php");
-    $getData = "SELECT * FROM surveys ORDER BY createDate DESC";
+    $getData = "SELECT * FROM surveys WHERE userID = $userID ORDER BY createDate DESC";
 		$result =$db_connection->query($getData) ;
 		if ($result->num_rows > 0) {
         echo "<table class='table'>
@@ -26,7 +27,7 @@ include("header.php");
 		    }
 		    echo "</table>";
 		} else {
-		    echo "0 results";
+		    echo "<p style='color: white; padding: 2%; '>Du hast noch keine Umfrage erstellt. Klicke auf neue Umfrage um eine Umfrage zu erstellen..</p>";
     }
     ?>
     </div>
